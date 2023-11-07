@@ -1,99 +1,84 @@
-const valores = ["$500","$1000","$1500"]
+const emailContraints = {
+    email: {
+      email:true
+    }
+  }
+  
+function formValidate(){
 
-let seguro = document.getElementById("seguro")
-let valorseguro = document.getElementById("valorseguro")
+    let { nombre,apellido,dni,email,telefono } = form;
+    let valid = true;
+    
+    if(nombre.value.length < 3 || !(isNaN(nombre.value))){
+      nombre.classList.add('invalid')
+      valid = false;
+    } else {
+      nombre.classList.remove('invalid');
+    }
+
+    if(apellido.value.length < 3 || !(isNaN(apellido.value))){
+      apellido.classList.add('invalid')
+      valid = false;
+    } else {
+      apellido.classList.remove('invalid');
+    }
+  
+  
+    if(dni.value.length < 7 || dni.value.length > 8){
+      dni.classList.add('invalid')
+      valid = false;
+    } else {
+      dni.classList.remove('invalid');
+    }
+  
+    let invalidEmail = validate({email:email.value},emailContraints,{format:'grouped'});
+    
+    if(invalidEmail){
+      email.classList.add('invalid')
+      valid = false;
+    } else {
+      email.classList.remove('invalid');
+    }
+    
+    if(telefono.value.length < 8){
+      telefono.classList.add('invalid')
+      valid = false;
+    } else {
+      telefono.classList.remove('invalid');
+    }
+  
+    if(!valid)
+      return false;
+  
+    return true;
+}
+
+const form = document.getElementById('frmcontacto');
+
+form.addEventListener('submit',(event) => {
+    event.preventDefault();
+    console.log("netra")
+    console.log(form)
+    if(!formValidate()){
+      return;
+    }
+})
+
+
+let seguro = document.getElementById("seguro");
+let valorseguro = document.getElementById("valorseguro");
+
+/*
+const valores = ["$500","$1000","$1500"]
 
 seguro.addEventListener("change", function(a) {
     let pos = a.target.selectedIndex;
     valorseguro.innerText = `${seguro.value}: ${valores[pos]}`
     
 })
+Esto fue una primera versión pero me había complicado sin sentido*/
 
 
-
-
-
-
-
-
-/*
-validate.extend(validate.validators.datetime, {
-        parse: function(value, options) {
-          return +moment.utc(value);
-        },
-        format: function(value, options) {
-          var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
-          return moment.utc(value).format(format);
-        }
-});
-
-var constraints = {
-    nombre:{
-        presence: true,
-        format: {
-            pattern: "[a-z]",
-            message: "Debe introducir un nombre válido"
-        }
-    },
-    apellido:{
-        presence: true,
-        format: {
-            pattern: "[a-z]",
-            message: "Debe introducir un nombre válido"
-        }
-    },
-    dni: {
-        presence: true,
-        length: {
-            minimum: 7,
-            maximum: 8,
-            message: "Debe introducir un número valido de 7 a 8 dígitos"
-        },
-        format:{
-            pattern: "[0-9]",
-            message: "El valor debe ser numérico"
-        }
-    },
-    email: {
-      presence: true,
-      email: true
-    },
-    telefono: {
-        presence: true,
-        length: {
-            minimum: 8,
-            maximum: 12,
-            message: "Debe introducir un número valido de 8 a 12 dígitos"
-        },
-        format:{
-            pattern: "[0-9]",
-            message: "El valor debe ser numérico"
-        }
-    }
-}
-
-let enviar = document.getElementById("enviar")
-let frmcontacto = document.getElementsByName("frmcontacto")
-console.log(frmcontacto)
-
-
-enviar.addEventListener("click" , function(){
-    //validate(frmcontacto,constraints)
-    var errors = validate(frmcontacto, constraints);
-    // then we update the form to reflect the results
-    showErrors(frmcontacto, errors || {});
-    if (!errors) {
-      showSuccess();
-    }
+seguro.addEventListener("change", (a)=>{
+    valorseguro.innerText = `${seguro.value}`
 })
-
-// Updates the inputs with the validation errors
-function showErrors(frmcontacto, errors) {
-    // We loop through all the inputs and show the errors for that input
-    (frmcontacto.querySelectorAll("input[name], select[name]"), function(input) {
-      // Since the errors can be null if no errors were found we need to handle
-      // that
-      showErrorsForInput(input, errors && errors[input.name]);
-    });
-  }
-*/

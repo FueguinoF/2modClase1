@@ -9,24 +9,32 @@
 </head>
 <body>
     <header>
-        <a href="#"><h2>Seguro No Pagamos Cooperativa</h2></a>
-        <nav>
-            <a href="#inicio"><i class="las la-home"></i> Inicio </a>
-            <a href="#nosotros"><i class="las la-user-friends"></i> Quienes somos </a>
-            <a href="#contacto"><i  class="las la-envelope"></i> Contacto </a>
-        </nav>
+        <div>
+            <a href="#"><h1>Seguro No Pagamos Cooperativa</h1></a>
+        </div>
+        <div>
+            <nav>
+                <a href="#inicio"><i class="las la-home"></i> Inicio</a>
+                <a href="#nosotros"><i class="las la-user-friends"></i> Quienes somos</a>
+                <a href="#contacto"><i  class="las la-envelope"></i> Contacto</a>
+            </nav>
+        </div>
     </header>
     <main>
         <section id="inicio">
-            <h2> La solución que necesita en seguros </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ab at esse, veritatis tenetur 
-            provident alias consequuntur qui mollitia animi quidem dolorem officiis amet rem fugit! 
-            Corporis in repellendus quos. </p>
+            <div id="contini">
+                <h2> La solución que necesita en seguros </h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ab at esse, veritatis tenetur 
+                provident alias consequuntur qui mollitia animi quidem dolorem officiis amet rem fugit! 
+                Corporis in repellendus quos. </p>
+            </div>    
         </section>
         <section id="nosotros">
-            <h2> Quienes somos </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Reiciendis soluta odio fugit, adipisci 
-            sunt quisquam quibusdam ex atque, ut quam dicta ipsam aliquam aperiam eos excepturi sequi totam earum tenetur.</p>
+            <div id="contnos">
+                <h2> Quienes somos </h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Reiciendis soluta odio fugit, adipisci 
+                sunt quisquam quibusdam ex atque, ut quam dicta ipsam aliquam aperiam eos excepturi sequi totam earum tenetur.</p>
+            </div>
         </section>
         <section id="contacto">
             <div id="ctc1">
@@ -37,19 +45,21 @@
             </div>
             <div id="ctcfrm">
                 <form action="#" name="frmcontacto" id="frmcontacto">
-                    <input type="text" name="nombre" placeholder="Nombre">
-                    <input type="text" name="apellido" placeholder="Apellido">
-                    <input type="number" name="dni" placeholder="DNI">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="number" name="telefono" placeholder="Teléfono">
+                    <input type="text" id="nombre" placeholder="Nombre">
+                    <input type="text" id="apellido" placeholder="Apellido">
+                    <input type="number" id="dni" placeholder="DNI">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="number" id="telefono" placeholder="Teléfono">
                     <select name="" id="seguro">
-                        <option value="Básico">Básico</option>
-                        <option value="Intermedio">Intermedio</option>
-                        <option value="Premium">Premium</option>
+                        <option value="AR$ 500">Básico</option>
+                        <option value="AR$ 1000">Intermedio</option>
+                        <option value="AR$ 1500">Premium</option>
                     </select>
-                    <label > Valor del seguro </label>
-                    <label id="valorseguro"></label>
-                    <button id="enviar"> Enviar </button>
+                    <div>
+                        <label > Valor del seguro </label>
+                        <label id="valorseguro"></label>
+                    </div>
+                    <button tipe="submit" id="enviar"> Enviar </button>
                 </form>
             </div>
         </section>
@@ -67,7 +77,8 @@
         </div>
         
     </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>    
-    <script src="script.js"></script>    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+    <script src="./script.js"></script>    
 </body>
 </html>
